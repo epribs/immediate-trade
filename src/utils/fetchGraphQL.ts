@@ -24,6 +24,8 @@ export async function fetchGraphQL<T = any>(
       },
     });
 
+    console.log("GraphQL Request Body:", body);
+
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/graphql`,
       {
@@ -50,6 +52,7 @@ export async function fetchGraphQL<T = any>(
 
     if (data.errors) {
       console.error("GraphQL Errors:", data.errors);
+
       throw new Error("Error executing GraphQL query");
     }
 

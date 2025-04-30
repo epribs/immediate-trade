@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { print } from "graphql/language/printer";
 
 import styles from "./Navigation.module.css";
 
+import { print } from "graphql/language/printer";
+import gql from "graphql-tag";
+
 import { MenuItem, RootQueryToMenuItemConnection } from "@/gql/graphql";
 import { fetchGraphQL } from "@/utils/fetchGraphQL";
-import gql from "graphql-tag";
 
 async function getData() {
   const menuQuery = gql`
