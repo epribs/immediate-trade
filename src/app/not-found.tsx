@@ -1,35 +1,22 @@
-import type { Metadata } from "next";
-import { print } from "graphql/language/printer";
+import { Section, Container } from "@/components/craft";
+import { Button } from "@/components/ui/button";
 
-import { setSeoData } from "@/utils/seoData";
+import Link from "next/link";
 
-import { fetchGraphQL } from "@/utils/fetchGraphQL";
-import { ContentNode, Page } from "@/gql/graphql";
-import { PageQuery } from "@/components/Templates/Page/PageQuery";
-import { SeoQuery } from "@/queries/general/SeoQuery";
-
-const notFoundPageWordPressId = 6;
-
-export async function generateMetadata(): Promise<Metadata> {
-  const { contentNode } = await fetchGraphQL<{ contentNode: ContentNode }>(
-    print(SeoQuery),
-    { slug: notFoundPageWordPressId, idType: "DATABASE_ID" }
+export default function NotFound() {
+  return (
+    <Section>
+      <Container>
+        <div className="flex flex-col items-center justify-center min-h-[50vh] text-center">
+          <h1 className="text-4xl font-bold mb-4">404 - Page Not Found</h1>
+          <p className="mb-8">
+            Sorry, the page you are looking for does not exist.
+          </p>
+          <Button asChild className="not-prose mt-6">
+            <Link href="/">Return Home</Link>
+          </Button>
+        </div>
+      </Container>
+    </Section>
   );
-
-  const metadata = setSeoData({ seo: contentNode.seo });
-
-  return {
-    ...metadata,
-    alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/404-not-found/`,
-    },
-  } as Metadata;
-}
-
-export default async function NotFound() {
-  const { page } = await fetchGraphQL<{ page: Page }>(print(PageQuery), {
-    id: notFoundPageWordPressId,
-  });
-
-  return <div dangerouslySetInnerHTML={{ __html: page.content || " " }} />;
 }
