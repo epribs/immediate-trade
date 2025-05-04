@@ -10,6 +10,9 @@ import { File, Pen, Tag, Diamond, User, Folder } from "lucide-react";
 import { WordPressIcon } from "@/components/icons/wordpress";
 import { NextJsIcon } from "@/components/icons/nextjs";
 
+export const revalidate = 60;
+export const dynamicParams = true;
+
 // This page is using the craft.tsx component and design system
 export default function Home() {
   return (

@@ -12,7 +12,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { siteConfig } from "@/config/site.config";
 
 import Balancer from "react-wrap-balancer";
-import Logo from "@/public/logo.svg";
+import Logo from "@/public/assets/logo/immediate-trade-logo-640.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -77,10 +77,10 @@ const Nav = ({ className, children, id }: NavProps) => {
             alt="Logo"
             loading="eager"
             className="dark:invert"
-            width={42}
-            height={26.44}
+            width={118}
+            height={80}
           ></Image>
-          <h2 className="text-sm">{siteConfig.site_name}</h2>
+          {/* <h2 className="text-sm">{siteConfig.site_name}</h2> */}
         </Link>
         {children}
         <div className="flex items-center gap-2">
@@ -115,8 +115,8 @@ const Footer = () => {
                 src={Logo}
                 alt="Logo"
                 className="dark:invert"
-                width={42}
-                height={26.44}
+                width={118}
+                height={80}
               ></Image>
             </Link>
             <p>
