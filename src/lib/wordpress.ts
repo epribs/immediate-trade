@@ -12,7 +12,7 @@ import type {
   Page,
   Author,
   FeaturedMedia,
-} from "./wordpress.d";
+} from "../types/wordpress";
 
 // WordPress Config
 const baseUrl = process.env.WORDPRESS_URL;
@@ -44,7 +44,11 @@ const defaultFetchOptions: FetchOptions = {
 
 // Error handling utility
 class WordPressAPIError extends Error {
-  constructor(message: string, public status: number, public endpoint: string) {
+  constructor(
+    message: string,
+    public status: number,
+    public endpoint: string
+  ) {
     super(message);
     this.name = "WordPressAPIError";
   }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Post } from "@/lib/wordpress.d";
+import { Post } from "@/types/wordpress";
 import { cn } from "@/lib/utils";
 
 import {
