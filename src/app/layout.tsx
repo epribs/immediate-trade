@@ -77,8 +77,8 @@ const Nav = ({ className, children, id }: NavProps) => {
             alt="Logo"
             loading="eager"
             className="dark:invert"
-            width={118}
-            height={80}
+            width={105}
+            height={72}
           ></Image>
           {/* <h2 className="text-sm">{siteConfig.site_name}</h2> */}
         </Link>
@@ -94,8 +94,9 @@ const Nav = ({ className, children, id }: NavProps) => {
             ))}
           </div>
           <Button asChild className="hidden sm:flex">
-            <Link href="https://github.com/9d8dev/next-wp">Get Started</Link>
+            <Link href="/login">Login</Link>
           </Button>
+          <ThemeToggle />
           <MobileNav />
         </div>
       </div>
@@ -107,10 +108,10 @@ const Footer = () => {
   return (
     <footer>
       <Section>
-        <Container className="grid md:grid-cols-[1.5fr_0.5fr_0.5fr] gap-12">
+        <Container className="border-t not-prose grid md:grid-cols-[1.5fr_0.5fr] gap-12">
           <div className="flex flex-col gap-6 not-prose">
             <Link href="/">
-              <h3 className="sr-only">{siteConfig.site_name}</h3>
+              <span className="sr-only">{siteConfig.site_name}</span>
               <Image
                 src={Logo}
                 alt="Logo"
@@ -123,11 +124,11 @@ const Footer = () => {
               <Balancer>{siteConfig.site_description}</Balancer>
             </p>
           </div>
-          <div className="flex flex-col gap-2 text-sm">
-            <h5 className="font-medium text-base">Website</h5>
+          <div className="flex flex-col gap-2 text-sm text-right">
+            <span className="sr-only">{siteConfig.site_name}</span>
             {Object.entries(mainMenu).map(([key, href]) => (
               <Link
-                className="hover:underline underline-offset-4"
+                className="font-medium text-base hover:underline underline-offset-4"
                 key={href}
                 href={href}
               >
@@ -135,7 +136,7 @@ const Footer = () => {
               </Link>
             ))}
           </div>
-          <div className="flex flex-col gap-2 text-sm">
+          {/* <div className="flex flex-col gap-2 text-sm">
             <h5 className="font-medium text-base">Blog</h5>
             {Object.entries(contentMenu).map(([key, href]) => (
               <Link
@@ -146,13 +147,12 @@ const Footer = () => {
                 {key.charAt(0).toUpperCase() + key.slice(1)}
               </Link>
             ))}
-          </div>
+          </div> */}
         </Container>
         <Container className="border-t not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
-          <ThemeToggle />
           <p className="text-muted-foreground">
-            &copy; <a href="https://9d8.dev">9d8</a>. All rights reserved.
-            2025-present.
+            &copy; <a href={siteConfig.site_domain}>{siteConfig.site_name}</a>.
+            All rights reserved. {new Date().getFullYear()}-present.
           </p>
         </Container>
       </Section>
