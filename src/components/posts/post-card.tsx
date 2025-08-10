@@ -33,7 +33,7 @@ export async function PostCard({ post }: { post: Post }) {
       )}
     >
       <div className="flex flex-col gap-4">
-        <div className="h-48 w-full overflow-hidden relative rounded-md border flex items-center justify-center bg-muted">
+        {/* <div className="h-48 w-full overflow-hidden relative rounded-md border flex items-center justify-center bg-muted">
           {media?.source_url ? (
             <Image
               className="h-full w-full object-cover"
@@ -47,7 +47,7 @@ export async function PostCard({ post }: { post: Post }) {
               No image available
             </div>
           )}
-        </div>
+        </div> */}
         <div
           dangerouslySetInnerHTML={{
             __html: post.title?.rendered || "Untitled Post",
@@ -58,9 +58,9 @@ export async function PostCard({ post }: { post: Post }) {
           className="text-sm"
           dangerouslySetInnerHTML={{
             __html: post.excerpt?.rendered
-              ? post.excerpt.rendered.split(" ").slice(0, 12).join(" ").trim() +
-                "..."
-              : "No excerpt available",
+              ? post.excerpt.rendered.split(" ").slice(0, 16).join(" ").trim() +
+                " ..."
+              : "Read more ...",
           }}
         ></div>
       </div>
@@ -68,6 +68,7 @@ export async function PostCard({ post }: { post: Post }) {
       <div className="flex flex-col gap-4">
         <hr />
         <div className="flex justify-between items-center text-xs">
+          {/* <p>{author?.name || "Unknown Author"}</p> */}
           <p>{category?.name || "Uncategorized"}</p>
           <p>{date}</p>
         </div>

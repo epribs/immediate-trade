@@ -76,10 +76,10 @@ const Nav = ({ className, children, id }: NavProps) => {
             src={Logo}
             alt="Logo"
             loading="eager"
-            className="dark:invert"
+            className=""
             width={105}
             height={72}
-          ></Image>
+          />
           {/* <h2 className="text-sm">{siteConfig.site_name}</h2> */}
         </Link>
         {children}
@@ -93,9 +93,18 @@ const Nav = ({ className, children, id }: NavProps) => {
               </Button>
             ))}
           </div>
-          <Button asChild className="hidden sm:flex">
-            <Link href="/login">Login</Link>
-          </Button>
+          {/* <div className="flex flex-col gap-2 text-sm">
+            <h5 className="font-medium text-base">Blog</h5>
+            {Object.entries(contentMenu).map(([key, href]) => (
+              <Link
+                className="hover:underline underline-offset-4"
+                key={href}
+                href={href}
+              >
+                {key.charAt(0).toUpperCase() + key.slice(1)}
+              </Link>
+            ))}
+          </div> */}
           <ThemeToggle />
           <MobileNav />
         </div>
@@ -108,7 +117,7 @@ const Footer = () => {
   return (
     <footer>
       <Section>
-        <Container className="border-t not-prose grid md:grid-cols-[1.5fr_0.5fr] gap-12">
+        <Container className="border-t not-prose grid md:grid-cols-[1.5fr_0.5fr]">
           <div className="flex flex-col gap-6 not-prose">
             <Link href="/">
               <span className="sr-only">{siteConfig.site_name}</span>
@@ -118,7 +127,7 @@ const Footer = () => {
                 className="dark:invert"
                 width={118}
                 height={80}
-              ></Image>
+              />
             </Link>
             <p>
               <Balancer>{siteConfig.site_description}</Balancer>
