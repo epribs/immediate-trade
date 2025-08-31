@@ -21,8 +21,8 @@ import {
 } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
 
-import { mainMenu, contentMenu } from "@/config/menu.config";
-import { siteConfig } from "@/config/site.config";
+import { mainMenu, contentMenu } from "@/menu.config";
+import { siteConfig } from "@/site.config";
 
 export function MobileNav() {
   const [open, setOpen] = React.useState(false);
